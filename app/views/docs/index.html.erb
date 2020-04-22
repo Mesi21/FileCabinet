@@ -1,8 +1,7 @@
-<%= @docs.each do |d| %>
-    <h2><%= link_to d %></h2> 
-    <h3><%= d.title %></h3>
-    <p><%= truncate(d.content, length:35) %></p>
-    <p><%= time_ago_in_words(d.created_at) %></p>
+<%= @docs.each do |doc| %>
+    <h3><%= link_to doc.title, doc %></h3>
+    <p><%= truncate(doc.content, length:50) %></p>
+    <p><small><%= time_ago_in_words(doc.created_at) %></small></p>
 <% end %>
 
 <%= link_to 'Create document', new_doc_path %>
