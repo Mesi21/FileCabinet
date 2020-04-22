@@ -10,16 +10,17 @@ class DocsController < ApplicationController
     end
 
     def show
-      
     end
 
     def create
       @doc = Doc.new(doc_params)
 
       if @doc.save
+        flash[:notice] = 'Document saved successfully'
         redirect_to @doc
       else
-        render "new"
+        flash[:alert] = 'Document was not saved!'
+        render :new
       end
     end
     
@@ -27,9 +28,16 @@ class DocsController < ApplicationController
     end
     
     def update
+      if @doc.update(doc_params)
+        redirect_to @doc
+      else
+        render :edit
+      end
     end
 
     def destroy
+      @doc.destroy
+      redirect_to docs_path
     end
 
     private
