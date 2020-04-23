@@ -1,0 +1,11 @@
+<div class="wrapper_with_padding">
+  <div id="doc_show">
+    <h1 class="title"><%= @doc.title %></h1>
+    <p><%= simple_format(@doc.content) %></p>
+
+    <div class="buttons">
+      <%= link_to 'Edit it', edit_doc_path(@doc), class:"button" %>
+      <%= link_to 'Delete', docs_path(@doc), method: :delete, data: { confirm: "Are you sure you want to delete this doc?" }, class: "button" %>
+    </div>
+  </div>
+</div>
