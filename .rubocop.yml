@@ -6,8 +6,9 @@ AllCops:
     - "Guardfile"
     - "Rakefile"
   DisplayCopNames: true
+  NewCops: enable
 
-Metrics/LineLength:
+Layout/LineLength:
   Max: 120
 Metrics/MethodLength:
   Include: ["app/controllers/*"]
