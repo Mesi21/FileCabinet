@@ -10,20 +10,23 @@
   </head>
 
   <body>
-    <header class="header_inner"><% link_to 'FileCabinet', root_path, id: 'logo' %></header>
-    <nav>
-      <% if user_signed_in? %>
-        <%= link_to 'Create Doc', new_doc_path %>
-        <%= link_to 'Sign Out', destroy_user_session_path, method: :delete  %>
-      <% else %>
-         <%= link_to 'Log in', new_user_session_path %>
-      <% end %>
-      
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+    <header>
+      <div class="header_inner">
+        <%= link_to "FileCabinet", root_path, id: "logo" %>
+        <nav>
+          <% if user_signed_in? %>
+            <%= link_to "Create Doc", new_doc_path %>
+            <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+          <% else %>
+            <%= link_to 'Log in', new_user_session_path %>
+          <% end %>
+        </nav>
+      </div>   
+    </header>
+    
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
 
-      <%= yield %>
-    </nav>
-
+    <%= yield %>
   </body>
 </html>
